@@ -21,7 +21,7 @@ export class AuthenticationService {
   }
 
   login(body: any) {
-    return this.http.post('http://127.0.0.1:3000/users/login', body, {
+    return this.http.post('http://127.0.0.1:3001/users/login', body, {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -30,14 +30,14 @@ export class AuthenticationService {
 
   register(body: any) {
     console.log('reg');
-    return this.http.post('http://127.0.0.1:3000/users/register', body, {
+    return this.http.post('http://127.0.0.1:3001/users/register', body, {
       observe: 'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
   }
 
   user() {
-    return this.http.get('http://127.0.0.1:3000/users/user', {
+    return this.http.get('http://127.0.0.1:3001/users/user', {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -45,7 +45,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    return this.http.get('http://127.0.0.1:3000/users/logout', {
+    return this.http.get('http://127.0.0.1:3001/users/logout', {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')

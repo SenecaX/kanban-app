@@ -48,4 +48,8 @@ export class DashboardComponent implements OnInit {
       );
     }
   }
+
+  saveTask(taskName): void {
+    
+  }
 }

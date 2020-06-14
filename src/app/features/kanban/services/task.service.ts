@@ -16,7 +16,7 @@ export class TaskService {
   }
 
   deleteTask(task) {
-    return this.http.delete('http://localhost:5000/api/task' + todo.id);
+    return this.http.delete('http://localhost:5000/api/task' + task.id);
   }
 
   updateTask(task) {

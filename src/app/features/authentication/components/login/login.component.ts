@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../../../shared/services/authentication.api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
+    //disable button if form is not valid
     if (!this.loginForm.valid) {
-      console.log('Invalid');
       return;
     }
 

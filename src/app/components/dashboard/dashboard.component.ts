@@ -2,18 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
-  transferArrayItem
+  transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { Board } from 'src/app/shared/models/board.model';
+import { Column } from 'src/app/shared/models/column.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+
+  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+
+  board: Board = new Board('Test board', [
+    new Column('Todo', ['One', 'Two', 'Three']),
+    new Column('In Progress', ['Red', 'Blue', 'yellow']),
+    new Column('Done', [
+      'Get to work',
+      'Pick up groceries',
+      'Go home',
+      'Fall asleep',
+    ]),
+  ]);
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('test');
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

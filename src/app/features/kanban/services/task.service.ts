@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/user';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+export class TaskService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem('currentUser'))
-    );
-    this.currentUser = this.currentUserSubject.asObservable();
+  getTasks() {
+    return this.http.get('http://localhost:5000/api/task' + '/todo');
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+  createTask(task) {
+    return this.http.post('http://localhost:5000/api/task', task);
+    //   .pipe(map((response: any) => response.json()));
   }
 
-  login(body: any) {
-    return this.http.post('http://127.0.0.1:5000/users/login', body, {
-      observe: 'body',
-      withCredentials: true,
-      headers: new HttpHeaders().append('Content-Type', 'application/json')
-    });
+  deleteTask(task) {
+    return this.http.delete('http://localhost:5000/api/task' + todo.id);
+  }
+
+  updateTask(task) {
+    return this.http.put('http://localhost:5000/api/task', task);
   }
 }

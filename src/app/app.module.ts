@@ -3,19 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeaderComponent } from './shared/common-components/header/header.component';
-import { LoginComponent } from './components/login/login.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { KanbanModule } from './features/kanban/kanban.module';
+import { AuthenticationModule } from './features/authentication/authentication.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    HeaderComponent,
-    LoginComponent
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthenticationModule,
+    KanbanModule
   ],
-  imports: [BrowserModule, AppRoutingModule, DragDropModule],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

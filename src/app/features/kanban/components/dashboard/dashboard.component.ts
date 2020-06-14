@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
-  transferArrayItem,
+  transferArrayItem
 } from '@angular/cdk/drag-drop';
-import { Board } from 'src/app/shared/models/board.model';
-import { Column } from 'src/app/shared/models/column.model';
+import { Board } from '../../models/board.model';
+import { Column } from '../../models/column.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
@@ -24,15 +24,13 @@ export class DashboardComponent implements OnInit {
       'Get to work',
       'Pick up groceries',
       'Go home',
-      'Fall asleep',
-    ]),
+      'Fall asleep'
+    ])
   ]);
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('test');
-  }
+  ngOnInit(): void {}
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
